@@ -43,25 +43,25 @@ def main(input_filename, output_filename):
     
     for i, defn in enumerate(field_defns):
         
-        if defn.GetName() == "POP10":
+        if defn.GetName() == "POP10" or defn.GetName() == "POPULATION":
             pop_field = i
             
-        if defn.GetName() == "nh_white_n":
+        if defn.GetName() == "nh_white_n" or defn.GetName() == "NH_WHT":
             white_field = i
             
-        if defn.GetName() == "nh_black_n":
+        if defn.GetName() == "nh_black_n" or defn.GetName() == "NH_BLK":
             black_field = i
             
-        if defn.GetName() == "nh_asian_n":
+        if defn.GetName() == "nh_asian_n" or defn.GetName() == "NH_ASN":
             asian_field = i
             
-        if defn.GetName() == "hispanic_n":
+        if defn.GetName() == "hispanic_n" or defn.GetName() == "HISPANIC_O":
             hispanic_field = i
             
-        if defn.GetName() == "NH_Other_n":
+        if defn.GetName() == "NH_Other_n" or defn.GetName() == "NH_OTH":
             other_field = i
             
-        if defn.GetName() == "STATEFP10":
+        if defn.GetName() == "STATEFP10" or defn.GetName() == "STATE":
             statefips_field = i
 
     # Set-up the output file
@@ -291,13 +291,5 @@ def main(input_filename, output_filename):
 # Execution code...
 
 if __name__=='__main__':
-    
-    for state in ['01','02','04','05','06','08','09','10','11','12','13','15',
-        '16','17','18','19','20','21','22','23','24','25','26','27','28','29','30',
-        '31','32','33','34','35','36','37','38','39','40','41','42','44','45','46',
-        '47','48','49','50','51','53','54','55','56']:
         
-        print "state:%s"%state
-        
-        main( ".../Census Data/statefile_"+state+".shp", 
-        ".../Map Data/people_by_race5.db")
+    main(sys.argv[1], sys.argv[2])
